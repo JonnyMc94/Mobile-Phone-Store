@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AJAX - API - Database</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Use Bootstrap for the form styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="styles.css">
+  <!-- Use W3.CSS for the Modal -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- jQuery and Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/1.18.4/jquery.autosize.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Extra Styles for the Bootstrap Forms */
+    h1 {
+      font: 30px Verdana;
+      text-align: center;
+    }
+
+    h2 {
+      font: 20px Verdana;
+      text-align: center;
+    }
+
+    legend {
+      padding: 10px;
+      font: 30px Verdana
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Mobile Phone Store</h1>
+  <br />
+
+  <!-- 
+        Bootstrap Styled Form: Add User to Database 
+        Generated using the Bootsnipp Form Builder and Generator for Bootstrap
+        https://bootsnipp.com/forms
+    -->
+    
+    <!-- Below is the form to add a new user-->
+
+  <form id="add-customer" class="form-horizontal" style="padding-bottom:15px">
+    <fieldset>
+  
+      <!-- Form Name -->
+      <legend>Add Customer</legend>
+      <p style="text-align:center">Please fill out the following data to add a customer to the database</p>
+      <p style="text-align:center">**Required fields are marked with an asterisk</p>
+      <!-- Select Basic -->
+      <div id="customer-data">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="title">*Title</label>
+          <div class="col-md-4">
+            <select id="title" name="title" class="form-control" required>
+              <option value="Mx">Mx</option>
+              <option value="Ms">Ms</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Dr">Dr</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="firstname">*First Name :</label>
+          <div class="col-md-4">
+            <input id="firstname" name="firstname" type="text" placeholder="Enter your first name..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+  
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="lastname">*Last Name :</label>
+          <div class="col-md-4">
+            <input id="lastname" name="lastname" type="text" placeholder="Please enter your last name here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+  
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="mobilenumber">*Mobile Number :</label>
+          <div class="col-md-4">
+            <input id="mobilenumber" name="mobilenumber" type="text" placeholder="Enter your mobile number here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+  
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">*Email Address : </label>
+          <div class="col-md-4">
+            <input id="email" name="email" type="text" placeholder="Please enter your email here..."
+              class="form-control input-md" required="">
+    
+          </div>
+        </div>
+      </div>
+      
+      <div id="hom-address">
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="homeadressline1">*Home Address Line 1 :</label>
+          <div class="col-md-4">
+            <input id="homeadressline1" name="homeaddressline1" type="text" placeholder="Home address line 1 here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="homeaddressline2">Home address Line 2:</label>
+          <div class="col-md-4">
+            <input id="homeaddressline2" name="homeaddressline2" type="text" placeholder="Home address Line 2 here..."
+              class="form-control input-md">
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="town">*Town :</label>
+          <div class="col-md-4">
+            <input id="town" name="town" type="text" placeholder="Town here..." class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="county">*County/city :</label>
+          <div class="col-md-4">
+            <input id="county" name="county" type="text" placeholder="County/city here..." class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="eircode">Eircode :</label>
+          <div class="col-md-4">
+            <input id="eircode" name="eircode" type="text" placeholder="Enter your eircode here"
+              class="form-control input-md">
+    
+          </div>
+        </div>
+      </div>
+
+      <div id="shipping-address">
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="shippingaddressline1">*Shipping Address Line 1 :</label>
+          <div class="col-md-4">
+            <input id="shippingaddressline1" name="shippingaddressline1" type="text"
+              placeholder="Shipping address line 1 here..." class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="shippingaddressline2">Shipping Address Line 2 : </label>
+          <div class="col-md-4">
+            <input id="shippingaddressline2" name="shippingaddressline2" type="text"
+              placeholder="Shipping address line 2 here.." class="form-control input-md">
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="townShipAdd">*Town :</label>
+          <div class="col-md-4">
+            <input id="townShipAdd" name="townShipAdd" type="text" placeholder="Town name here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="countyShipAdd">*County/city here :</label>
+          <div class="col-md-4">
+            <input id="countyShipAdd" name="countyShipAdd" type="text" placeholder="County/city here..."
+              class="form-control input-md" required>
+    
+          </div>
+        </div>
+    
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="eircodeShipAdd">Eircode :</label>
+          <div class="col-md-4">
+            <input id="eircodeShipAdd" name="eircodeShipAdd" type="text" placeholder="Eircode here..."
+              class="form-control input-md">
+    
+          </div>
+        </div>
+      </div>
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="submitbutton"></label>
+        <div class="col-md-4">
+          <button id="submitbutton" type="submit" name="submitbutton" class="btn btn-primary">Add to database &nbsp; <span class="fa fa-plus-circle fa-lg"></span></button>
+        </div>
+      </div>
+  
+    </fieldset>
+  </form>
+
+<!-- This form is for updating a user in the following fields - number, title, email, mobile number, town and eircode -->
+
+<form class="form-horizontal" id="update-customer-form">
+  <fieldset>
+    <!-- Form Name -->
+    <legend>Update Customer</legend>
+    <p style="text-align:center">Please fill out the following data to update a customer to the database. You must first choose which customer you would like to update from the dropdown menu</p>
+    <p style="text-align:center">**Required fields are marked with an asterisk</p>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="title">*Customer choice</label>
+      <select id="customerSel" class="col-md-4" name="customerSel">
+        <option value="" required >Please choose a customer...</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-title">*Update title here</label>
+      <div class="col-md-4">
+        <input id="update-title" name="update-title" type="text" placeholder="Please update the user's title here..."
+          class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-fname">*Update first name here</label>
+      <div class="col-md-4">
+        <input id="update-fname" name="update-fname" type="text" placeholder="Please update the user's first name here..."
+          class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-surname">*Update surname here</label>
+      <div class="col-md-4">
+        <input id="update-surname" name="update-surname" type="text" placeholder="Please update the user's surname here..."
+          class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-mobile">*Update mobile number here</label>
+      <div class="col-md-4">
+        <input id="update-mobile" name="update-mobile" type="text"
+          placeholder="Please write the users updated mobile number here..." class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-email">*Update email address here</label>
+      <div class="col-md-4">
+        <input id="update-email" name="update-email" type="text" placeholder="Please update the user's email address here..."
+          class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-town">*Update town here</label>
+      <div class="col-md-4">
+        <input id="update-town" name="update-town" type="text"
+          placeholder="Please update the user's address information here..." class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-eirocde">*Update eircode here</label>
+      <div class="col-md-4">
+        <input id="update-eircode" name="update-eircode" type="text"
+          placeholder="Please update the user's address information here..." class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update-customer"></label>
+      <div class="col-md-4">
+        <button id="update-customer" name="update-customer" class="btn btn-warning">Update Customer &nbsp;<span class="fa fa-edit fa-lg"></span></button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+
+
+</br>
+</br>
+
+<!-- This is the productfrom which is displayed on "Add product" click -->
+<form class="form-horizontal" id="add-phone-form">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Add Phone</legend>
+    <p style="text-align:center">Please fill out the following data to add a customer to the database</p>
+    <p style="text-align:center">**Required fields are marked with an asterisk</p>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="manufacturer">*Manufacturer:</label>
+      <div class="col-md-4">
+        <input id="manufacturer" name="manufacturer" type="text" placeholder="Enter the manufacturer's name here..."
+          class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="model">*Model :</label>
+      <div class="col-md-4">
+        <input id="model" name="model" type="text" placeholder="Enter the model here.." class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="price">*Price : </label>
+      <div class="col-md-4">
+        <input id="price" name="price" type="text" placeholder="Enter the price here..." class="form-control input-md" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="add-phone"></label>
+      <div class="col-md-4">
+        <button id="add-phone" name="add-phone" class="btn btn-primary">Add phone to database</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<form class="form-horizontal" id="update-product-form">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Update product info</legend>
+    <p style="text-align:center">Please fill out the following data to update a product in the database. You must first choose which product you would like to update from the dropdown menu</p>
+    <p style="text-align:center">**Required fields are marked with an asterisk</p>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="title">*Product choice</label>
+      <select id="productSel" class="col-md-4" name="productSel">
+        <option value="" required>Please choose a product...</option>
+      </select>
+    </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="manufacturer">*Manufacturer:</label>
+      <div class="col-md-4">
+        <input id="update-manufacturer" name="manufacturer" type="text" placeholder="Enter the manufacturer's name here..."
+          class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="model">*Model :</label>
+      <div class="col-md-4">
+        <input id="update-model" name="model" type="text" placeholder="Enter the model here.." class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="price">*Price : </label>
+      <div class="col-md-4">
+        <input id="update-price" name="price" type="text" placeholder="Enter the price here..." class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="add-phone"></label>
+      <div class="col-md-4">
+        <button id="update-phone" type="submit" name="update-phone" class="btn btn-warning">Update phone information</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+
+<!-- This is the order from which is displayed on "Add order" click -->
+<form class="form-horizontal" id="add-order-form">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Make an order</legend>
+    <p style="text-align:center">To complete an order, please first pick the current customer from the list</p>
+    <p style="text-align:center">**Required fields are marked with an asterisk</p>
+    <!-- Text input-->
+    <div class="form-group" style="margin-top: 30px;">
+      <label class="col-md-4 control-label" for="customer">*Customer choice</label>
+      <select id="customerOrderSel" class="col-md-4" name="customerOrderSel" style="margin-top: 10px;">
+        <option value="" required>Please choose a customer...</option>
+      </select>
+    </div>
+    <!-- Multiple Checkboxes -->
+    <div class="form-group">
+      <div class="col-md-4" id="productChoice" style="margin: auto;">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submit-order"></label>
+      <div class="col-md-4">
+        <button id="submit-order" name="submit-order" class="btn btn-primary">Submit order to database</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+
+<!-- The following three forms display the users general information, product information and order information on request -->
+
+  <!-- This is where the customer information is displayed and users can choose to update a customer -->
+    <div class="container-fluid" id="customer-data-show">
+       <legend>Customer Database</legend>
+        <div>
+          <div class="container-fluid">
+            <div class="row" id="customer-collection" ></div>
+          </div>
+        </div>
+      <div class="wrapper"></div>
+        <div class="text-center">
+          <button type="submit" id="show-cust" value="Show Customer Data" class="btn btn-success">
+            Show Customer Data &nbsp; <span class="fa fa-eye fa-lg"></span>
+          </button>
+          <button type="submit" id="hide-cust" value="Hide Customer Data" class="btn btn-success">
+            Hide Customer Data  &nbsp; <span class="fa fa-eye-slash fa-lg"></span></button>
+          <button id="addCustomerButton" name="add-customer" class="btn btn-primary">
+            Add customer &nbsp;<span class="fa fa-plus-circle fa-lg"></span>
+          </button>
+          <button class="btn btn-warning updateCustomerButton" onclick="displayUpdateForCustomer()">
+            Update customer &nbsp;<span class="fa fa-edit fa-lg"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+  <!-- This is where the product information is displayed and users can choose to update a product -->
+
+  <div class="container-fluid" id="product-data-show">
+    <legend>Product Database</legend>
+      <div>
+        <div class="container-fluid">
+          <div class="row" id="product-collection"></div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="text-center">
+          <a type="submit" id="show-product" value="Show Product Data" class="btn btn-success">
+            Show Product Data &nbsp; <span class="fa fa-eye fa-lg"></span>
+          </a>
+          <a type="submit" id="hide-product" value="Hide Product Data" class="btn btn-success">
+            Hide Product Data &nbsp; <span class="fa fa-eye-slash fa-lg"></span></a>
+          <a id="addProductButton" name="add-product" class="btn btn-primary">
+            Add product &nbsp;<span class="fa fa-plus-circle fa-lg"></span>
+          </a>
+        <button class="btn btn-warning updateProductButton" onclick="displayUpdateFormProduct()">
+          Update product &nbsp;<span class="fa fa-edit fa-lg"></span>
+        </button>
+        </div>
+      </div>
+  </div>
+
+  <!-- // This is where the order information would have been displayed -->
+  <div class="container-fluid" id="order-data-show">
+    <legend>Order Database</legend>
+      <div>
+        <div class="container-fluid">
+          <div class="row" id="customer-collection"></div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="text-center">
+        <button type="submit" id="show-order" value="Show Order Data" class="btn btn-success">Show Order Data
+          &nbsp; <span class="fa fa-eye fa-lg"></span>
+        </button>
+        <button type="submit" id="hide-order" value="Hide Order Data" class="btn btn-success">Hide Order Data
+          &nbsp; <span class="fa fa-eye-slash fa-lg"></span></button>
+        <button id="addOrderButton" name="add-order" class="btn btn-primary">Add order &nbsp;<span
+              class="fa fa-plus-circle fa-lg"></span>
+        </button>
+        <button class="btn btn-warning updateOrderButton" onclick="displayUpdateFormOrder()">
+          Update Order &nbsp;<span class="fa fa-edit fa-lg"></span>
+        </button>
+      </div>
+      </div>
+  </div>
+  <!-- 
+        jQuery Scripts used to implement form processing and Ajax functionality
+        https://www.w3schools.com/w3css/w3css_modal.asp
+    -->
+  <script>
+
+    //On page load the three forms are hidden
+      $('#add-customer').hide();
+      $('#add-phone-form').hide();
+      $('#add-order-form').hide();
+      $('#update-customer-form').hide();
+      $('#update-product-form').hide();
+      let userID = '';
+
+     // Handle "Delete customer" button click from dynamically renderred html
+      const deleteCustomer = (id) => {
+        console.log(id);
+        userID = id;
+        $.ajax({
+          type: 'DELETE',
+          url: `http://localhost:8000/customers/deleteCustomer/${userID}`
+        }).done( () => {
+          $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8000/customers/'
+          }).done((data) => {
+              let html = '';
+              data.forEach(function (customer) {
+
+                html +=
+                  `<div class="collection-item customer-card">
+                  <div class="row">
+                    <div class="pull-left customer-details" style="font-size: 1.8rem">
+                      ${customer.first_name} ${customer.surname}
+                    </div>
+                    <p hidden>${customer._id}</p>
+                    <div class="pull-right customer buttons" style="margin-top: 20px">
+                      <button name="update-customer" class="btn btn-warning updateCustomerButton">
+                        Update customer &nbsp;<span class="fa fa-edit fa-lg"></span>
+                      </button>
+                      <button name="delete-customer" 
+                      class="btn btn-danger deleteCustomerButton" onclick="deleteCustomer('${customer._id}')">
+                        Delete customer &nbsp;<span class="fa fa-trash-o fa-lg"></span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row" style="margin-bottom: 20px">
+                    <div class="col-3 customer-number" style="font-size: 1.2rem">
+                        <em>${customer.mobile_number}</em>
+                    </div>
+                    <div class="col-3 customer-email" style="font-size: 1.2rem">
+                        <em>${customer.email_address}</em>
+                    </div>
+                    </div>
+                </div>
+                `
+              })
+              document.querySelector('.customer-collection').innerHTML = html;
+        
+            })
+        //id.preventDefault();
+      })
+    }
+
+    // Handle "Delete product" button click from dynamically renderred html
+      const deleteProduct = (id) => {
+        console.log(id);
+        let productID = id;
+        $.ajax({
+          type: 'DELETE',
+          url: `http://localhost:8000/products/deleteProduct/${productID}`
+        }).done((data) => {
+          console.log(`Product ${data.maunfacturer} ${data.model} has been deleted`)
+          document.querySelector('.product-collection').innerHTML = html;
+        
+        })
+     }
+      
+     // This function displays the update customer form on button click
+      const displayUpdateForCustomer = () => {
+
+          console.log('clicked');
+          //userID = id;
+
+          $("#customer-data-show").hide();
+          $("#product-data-show").hide();
+          $("#order-data-show").hide();
+          $('#update-customer-form').show();
+
+          $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/customers/'
+        })
+          .done(function (data) {
+            let html = '';
+            data.forEach(function (customer) {
+
+              $('#customerSel').append(
+                `<option value="${customer._id}">${customer.first_name} ${customer.surname}</option>`);
+
+          })
+        })
+      }
+      // This function handles updating the customer information
+      $('#update-customer-form').submit( e => {
+
+          // Handle "Update User" form submission
+          var user = {
+            id: $('select[name=customerSel]').val(),
+            firstname: $('input[name=update-fname]').val(),
+            mobile: $('input[name=update-mobile]').val(),
+            title: $('input[name=update-title]').val(),
+            email: $('input[name=update-email]').val(),
+            eircode: $('input[name=update-eircode]').val(),
+            town: $('input[name=update-town]').val()
+          };
+
+          console.log(user);
+
+          
+          $.ajax({
+            type: 'PATCH',
+            url: `http://localhost:8000/customers/updateCustomer`,
+            data: user
+          }).done(() => {
+
+            alert(`${$('input[name=update-fname]').val()}'s number, title, email and eircode have been updated`);
+            // reset the form for next time!
+            $('input[name=update-fname]').val('');
+            $('input[name=update-mobile]').val('');
+            $('input[name=update-title]').val('');
+            $('input[name=update-email]').val('');
+            $('input[name=update-eircode]').val('');
+
+
+            $('#update-customer-form').hide();
+            $("#customer-data-show").show();
+            $("#product-data-show").show();
+            $("#order-data-show").show();
+
+            });
+          e.preventDefault();
+          
+        
+     })
+
+     // This function displays the product update form on button click
+      const displayUpdateFormProduct = (e) => {
+
+          console.log('clicked');
+          //let productID = id;
+
+          $("#customer-data-show").hide();
+          $("#product-data-show").hide();
+          $("#order-data-show").hide();
+          $('#update-product-form').show();
+
+          $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/products/'
+        })
+          .done((data) => {
+           
+            data.forEach((product) => {
+              $('#productSel').append(
+                `<option value="${product._id}">${product.manufacturer} ${product.model}</option>`);
+
+            })
+          })
+      }
+
+      // This function handles updating the product information
+      $('#update-product-form').submit(e => {
+        var product = {
+          id: $('select[name=productSel]').val(),
+          manufacturer: $('#update-manufacturer').val(),
+          model: $('#update-model').val(),
+          price: $('#update-price').val(),
+        };
+
+        $('#productSel').html('');
+        console.log(product);
+          let productID = product.id;
+
+          alert(`${product.manufacturer} ${product.model} information has been updated`);
+          $.ajax({
+            type: 'PATCH',
+            url: `http://localhost:8000/products/updateProduct`,
+            data: product
+          }).done((data) => {
+
+            //alert(`${data.manufacturer} ${data.model} has been added to the database`);
+            // reset the form for next time!
+            $('input[name=manufacturer]').val(''),
+            $('input[name=model]').val(''),
+            $('input[name=price]').val(''),
+
+
+            $('#update-product-form').hide();
+            $("#customer-data-show").show();
+            $("#product-data-show").show();
+            $("#order-data-show").show();
+
+          });
+
+          e.preventDefault(); 
+
+      });
+
+    $(document).ready( () => {
+      
+      // This function handles adding a new customer to the database
+      $('#add-customer').submit( e => {
+        
+        let formData = Object.fromEntries(new FormData(e.target));
+        alert("A new user has been added to the database");
+        $.ajax({
+          type: 'POST',
+          url: 'http://localhost:8000/customers/addCustomer',
+          contentType: 'application/json',
+          data: JSON.stringify(formData)
+        }).done( () => {
+          document.querySelector('#customer-collection').innerHTML = '';
+            // reset the form for next time!
+            $('select[name=title]').val('');
+            $('input[name=firstname]').val('');
+            $('input[name=lastname]').val('');
+            $('input[name=mobilenumber]').val('');
+            $('input[name=email]').val('');
+            $('input[name=homeaddressline1]').val('');
+            $('input[name=homeaddressline2]').val('');
+            $('input[name=town]').val('');
+            $('input[name=county]').val('');
+            $('input[name=eircode]').val('');
+            $('input[name=shippingaddressline1]').val('');
+            $('input[name=shippingaddressline2]').val('');
+            $('input[name=townShipAdd]').val('');
+            $('input[name=countyShipAdd]').val('');
+            $('input[name=eircodeShipAdd]').val('');
+        
+            // https://www.w3schools.com/jquery/jquery_css.asp
+            $('#add-customer').hide();
+            $('#addCustomerButton').show();
+            $("#customer-data-show").show();
+            $("#product-data-show").show();
+            $("#order-data-show").show();
+            
+          });
+          e.preventDefault();
+      
+      });
+
+      // This method handles adding a new product to the database
+      $('#add-phone-form').submit(e => {
+
+        let formData = Object.fromEntries(new FormData(e.target));
+        
+        $.ajax({
+          type: 'POST',
+          url: 'http://localhost:8000/products/addProduct',
+          contentType: 'application/json',
+          data: JSON.stringify(formData)
+        }).done((data) => {
+
+          alert(`${data.manufacturer} ${data.model} has been added to the database`);
+          // reset the form for next time!
+          $('input[name=manufacturer]').val('');
+          $('input[name=model]').val('');
+          $('input[name=price]').val('');
+
+          // https://www.w3schools.com/jquery/jquery_css.asp
+          $('#add-phone-form').hide();
+          $('#addProductButton').show();
+          $("#customer-data-show").show();
+          $("#product-data-show").show();
+          $("#order-data-show").show();
+          document.querySelector('.product-collection').innerHTML = '';
+        });
+        e.preventDefault();
+      });
+
+      $('#add-order-form').submit(e => {
+        // https://stackoverflow.com/questions/8563240/how-to-get-all-checked-checkboxes/31113246
+        let checkboxes = document.getElementsByName("checkboxes");
+        let selectedProducts = Array.prototype.slice.call(checkboxes).filter(ch => ch.checked == true);
+        let boxValues = [];
+
+        // Adds selected products to array 
+        selectedProducts.forEach(product => {
+          boxValues.push(product.value)
+        })
+       
+     
+      
+        let order = {
+          customer_id: $('select[name=customerOrderSel]').val(),
+          products: boxValues,
+        }
+        $.ajax({
+          type: 'POST',
+          url: 'http://localhost:8000/orders/addOrder',
+          contentType: 'application/json',
+          data: JSON.stringify(order)
+        }).done((data) => {
+          console.log(order);
+          alert(`User ${data.customer_id}'s order has been added to the database`);
+          // reset the form for next time!
+          $('select[name=manufacturer]').val('');
+          $('input[name=model]').val('');
+          $('input[name=price]').val('');
+
+          // https://www.w3schools.com/jquery/jquery_css.asp
+          $('#add-order-form').hide();
+          $('#addOrderButton').show();
+          $("#customer-data-show").show();
+          $("#product-data-show").show();
+          $("#order-data-show").show();
+          // document.querySelector('.product-collection').innerHTML = '';
+        });
+        e.preventDefault();
+      });
+
+
+      // This function displays the customers data on screen 
+      // handle "Show Customer Data" submit button click
+      $('#show-cust').click(e => {
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/customers/'
+        })
+          .done(function (data) {
+            let html = '';
+            data.forEach(function (customer) {
+             
+               html +=
+                `  <div class="col-lg-2 col-md-3 col-sm-4 col-6" id="customer-details" style="margin: 20px">
+                    <div class="card text-center" style="width: 18rem;">
+                      <div class="card-body bg-light mb-3">
+                        <div class="card-title">
+                          <h1>${customer.first_name} </br> ${customer.surname}</h1> 
+                        </div>
+                        <div class="card-text">
+                          <em>${customer.mobile_number}</em> 
+                          </br> <em>${customer.email_address}</em> </br>
+                          <em>${customer.address.home.line1}, ${customer.address.home.town}</em> </br>
+                          <em>${customer.address.home.county}, ${customer.address.home.eircode}</em> </br>
+                          <em>${customer.address.shipping.line1}, ${customer.address.shipping.town}</em> </br>
+                          <em>${customer.address.shipping.county}, ${customer.address.shipping.eircode}</em> </br>
+                          </div>
+                        </div>
+                        <div class="customer buttons" style="margin-top: 20px">
+                          <button name="delete-customer"
+                          class="btn btn-danger deleteCustomerButton" onclick="deleteCustomer('${customer._id}')">
+                            Delete customer &nbsp;<span class="fa fa-trash-o fa-lg"></span>
+                          </button>
+                        </div>
+                      </div>
+                  </div>
+                `
+            })
+            document.querySelector('#customer-collection').innerHTML = html;
+          });
+        e.preventDefault(); 
+      });
+
+      
+      // This function displays the current product data on screen 
+      // handle "Show Product Data" submit button click
+      $('#show-product').click(e => {
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/products/'
+        })
+          .done( (data) => {
+            let html = '';
+             data.forEach( (product) => {
+
+               html += 
+               `<div class="col-lg-2 col-md-3 col-sm-4 col-6" id="customer-details" style="margin: 20px">
+                    <div class="card text-center" style="width: 18rem;">
+                      <div class="card-body bg-light mb-3">
+                        <div class="card-title">
+                          <h1><strong>${product.manufacturer}</strong></h1>
+                        </div>
+                        <div class="card-text" style="font-size: 1.6rem">
+                          <em>${product.model}</em> </br>
+                          <em>${product.price}</em>
+                        </div>
+                        <div class="product-buttons" style="margin-top: 20px;">
+                          <button id="deleteProductButton" name="delete-product" class="btn btn-danger"
+                          onclick="deleteProduct('${product._id}')">
+                            Delete product &nbsp;<span class="fa fa-trash-o fa-lg"></span>
+                          </button>
+                        </div>
+                      </div>
+                  </div>
+                </div>`
+
+             }) // display the database in the textarea and trigger an input change event
+             document.querySelector('#product-collection').innerHTML = html;
+          });
+          e.preventDefault();
+       });
+
+
+       // This my starting attempt at showing orders -- I didn't get time to finish it
+      // handle "Show Order Data" submit button click
+      $('#show-order').click(e => {
+
+        e.preventDefault();
+        let customers;
+        let html = '';
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/customers/'
+        })
+          .done(function (data) {
+            customers = data;
+            customers.map(async (c) => {
+              let orders;
+              
+              $.ajax({
+                type: 'GET',
+                url: `http://localhost:8000/orders/${c._id}`
+              }).done((res) => {
+                
+                orders = res
+                console.log(orders)
+                html +=
+                  `<div class="col-lg-2 col-md-3 col-sm-4 col-6" id="order-details" style="margin: 20px">
+                    <div class="card text-center" style="width: 18rem;">
+                      <div class="card-body bg-light mb-3">
+                        <div class="card-title">
+                          <h1> Order number </br>${orders._id} </h1>
+                        </div>
+                        <div class="card-text">
+                          Customer <em>${customers.customer_id}</em> 
+                          Name <em>${customers.first_name} ${customer.surname}</em>
+                        </div>
+                        <div class="order-buttons" style="margin-top: 20px">
+                          <button name="delete-order"
+                          class="btn btn-danger deleteOrderButton" onclick="deleteOrder('${orderID}')">
+                            Delete Order &nbsp;<span class="fa fa-trash-o fa-lg"></span>
+                          </button>
+                        </div>
+                      </div>
+                  </div>`
+
+              })
+              //document.querySelector('.product-collection').innerHTML = html;
+            })
+          })
+            
+            
+              
+          
+            
+         });
+        
+      
+
+      // Handles "Hide Customer Data" button click
+      $('#hide-cust').click(e => {
+        document.querySelector('#customer-collection').innerHTML = '';
+        e.preventDefault();
+      })
+
+      // Handles "Hide ProductData" button click
+      $('#hide-product').click(e => {
+        document.querySelector('#product-collection').innerHTML = '';
+        e.preventDefault();
+      })
+
+      // Handles "Hide Order Data" button click
+      $('#hide-order').click(e => {
+        document.querySelector('.order-collection').innerHTML = '';
+        e.preventDefault();
+      })
+
+      // The following funcitons handle different button clicks and hide/display the appropriate forms/buttons
+      $("#addCustomerButton").click( e => {
+        //console.log('clicked');
+        e.preventDefault();
+        $('#add-customer').show();
+        $('#addCustomerButton').hide();
+        $("#customer-data-show").hide();
+        $("#product-data-show").hide();
+        $("#order-data-show").hide();
+      })
+
+      $("#addProductButton").click(e => {
+        //console.log('clicked');
+        e.preventDefault();
+        $('#add-phone-form').show();
+        $('#addProductButton').hide();
+        $("#customer-data-show").hide();
+        $("#product-data-show").hide();
+        $("#order-data-show").hide();
+      })
+
+
+      // This function displays the products adn customer options when the user wants to make an order
+      $("#addOrderButton").click(e => {
+        //console.log('clicked');
+        e.preventDefault();
+        $('#add-order-form').show();
+        $('#addOrderButton').hide();
+        $("#customer-data-show").hide();
+        $("#product-data-show").hide();
+        $("#order-data-show").hide();
+
+
+        // AJAX call to retrieve products from database
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/products/'
+        })
+          .done((data) => {
+            let html = '';
+            data.forEach((product) => {
+              $('#productChoice').append(
+                
+                `<div class="d-flex justify-content-center">
+                    <div class="checkbox">
+                      <label for="checkboxes-0">
+                        <input type="checkbox" name="checkboxes" class="productChecks" value="${product._id}">
+                          ${product.manufacturer} ${product.model} &nbsp;<em>€${product.price}<em>
+                      </label>
+                      </div>
+                    </div>`
+              )
+        })
+      }).done(() => {
+        // AJAX call to retrieve custoemr options from database
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:8000/customers/'
+        }).done((data) => {
+          let html = '';
+          data.forEach( (customer) => {
+
+             $('#customerOrderSel').append(
+              `<option value="${customer._id}">${customer.first_name} ${customer.surname}</option>`);
+
+          })
+        })
+      })
+    })
+
+  });
+
+  </script>
+
+</body>
+
+</html>

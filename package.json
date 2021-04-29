@@ -1,0 +1,21 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assignment-05-12460842.js",
+  "scripts": {
+    "start": "nodemon assignment-05-12460842.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autosize": "^4.0.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "mongoose": "^5.12.4",
+    "nodemon": "^2.0.7"
+  }
+}
